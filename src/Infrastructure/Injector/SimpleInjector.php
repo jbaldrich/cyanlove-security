@@ -68,7 +68,7 @@ final class SimpleInjector implements Injector {
 	 *                                   empty array.
 	 * @return object Instantiated object.
 	 */
-	public function make( string $interface_or_class, array $arguments = [] ): object {
+	public function make( string $interface_or_class, array $arguments = [] ) {
 		$injection_chain = $this->resolve(
 			new InjectionChain(),
 			$interface_or_class
@@ -178,7 +178,7 @@ final class SimpleInjector implements Injector {
 	private function make_dependency(
 		InjectionChain $injection_chain,
 		string $interface_or_class
-	): object {
+	) {
 		$injection_chain = $this->resolve(
 			$injection_chain,
 			$interface_or_class
@@ -400,7 +400,7 @@ final class SimpleInjector implements Injector {
 	 * @param string $class Class to get the shared instance for.
 	 * @return object Shared instance.
 	 */
-	private function get_shared_instance( string $class ): object {
+	private function get_shared_instance( string $class ) {
 		if ( ! $this->has_shared_instance( $class ) ) {
 			throw FailedToMakeInstance::for_uninstantiated_shared_instance( $class );
 		}
@@ -462,7 +462,7 @@ final class SimpleInjector implements Injector {
 			 * @param array  $dependencies Optional. Dependencies of the class.
 			 * @return object Instantiated object.
 			 */
-			public function instantiate( string $class, array $dependencies = [] ): object {
+			public function instantiate( string $class, array $dependencies = [] ) {
 				return new $class( ...$dependencies );
 			}
 		};

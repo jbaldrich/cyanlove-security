@@ -244,7 +244,7 @@ abstract class ServiceBasedPlugin implements Plugin {
 		 */
 		if ( ! is_a( $class, Registerable::class, true ) ) {
 			return new LazilyInstantiatedService(
-				function () use ( $class ): object {
+				function () use ( $class ) {
 					return $this->injector->make( $class );
 				}
 			);

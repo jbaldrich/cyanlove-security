@@ -41,7 +41,7 @@ interface Injector extends Service {
 	 *                                   empty array.
 	 * @return object Instantiated object.
 	 */
-	public function make( string $interface_or_class, array $arguments = [] ): object;
+	public function make( string $interface_or_class, array $arguments = [] );
 
 	/**
 	 * Bind a given interface or class to an implementation.
