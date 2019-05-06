@@ -110,7 +110,10 @@ final class SampleLoopService implements Service, Registerable, Conditional, Del
 		 * now easy to create a new view and render it.
 		 */
 		$post_header = $this->view_factory->create( 'views/test-loop-service' )
-		                                  ->render( [ 'post' => $this->post ] );
+										  ->render( [
+											'post_title' => $this->post->post_title,
+											'post_date'  => $this->post->post_date,
+										   ] );
 
 		return $post_header . $content;
 	}
